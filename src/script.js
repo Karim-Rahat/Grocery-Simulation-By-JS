@@ -25,26 +25,23 @@ function customer() {
   };
 }
 
-function heading() {
-  return {
-    cust_No: 0,
-    RIAT: 0,
-    IAT: 0,
-    AT: 0,
-    RST: 0,
-    ST: 0,
-    TSB: 0,
-    WT: 0,
-    TSE: 0,
-    TSS: 0,
-    ITS: 0,
-  };
-}
-
+const heading = [
+  "Customer no",
+  "Random IAT",
+  "Inter Arrival Time",
+  "Arrival Time",
+  "Random Service Time",
+  "Service Time",
+  "Time Service Begins",
+  "Wating Time",
+  "Time Service End",
+  "Time Spent in System",
+  "Idle Time in Server",
+];
 
 const getSize = () => {
-  const  contentDiv=document.getElementById("contentDiv")
-  console.log( contentDiv);
+  const contentDiv = document.getElementById("contentDiv");
+  console.log(contentDiv);
 
   (totalCustomer = 0),
     (totalIAT = 0),
@@ -281,12 +278,12 @@ const getSize = () => {
     tableBody2.appendChild(tr3);
   });
 
-  const keys = Object.keys(heading());
-  keys.forEach((e) => {
+  
+  heading.map((e) => {
     const th = document.createElement("th");
     th.innerText = e;
 
     tableHead.appendChild(th);
   });
-  contentDiv.style.display ='block'
+  contentDiv.style.display = "block";
 };

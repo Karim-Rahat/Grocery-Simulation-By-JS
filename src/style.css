@@ -1,0 +1,18 @@
+
+ #table-head>th {
+    border: 0.7px solid rgb(37, 111, 207);
+   
+  }
+@media only screen and (max-width: 800px) {
+    #table-head {
+      font-size: 10px;
+      text-align: center;
+     
+    }
+    #table-head > th{
+        
+        word-break: break-word;
+        margin-top: 0;
+        border: 0.7px solid rgb(37, 111, 207);
+    }
+  }
