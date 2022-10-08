@@ -214,7 +214,7 @@ const getSize = () => {
     tr3.className = 'fw-bolder'
     tr3.innerHTML = `
         <td>Average waiting time=</td>
-        <td>${totalWT / totalCustomer + ' min'}</td>
+        <td>${(totalWT / totalCustomer).toFixed(2) + ' min'}</td>
      
 
     `;
@@ -225,7 +225,7 @@ const getSize = () => {
     tr4.className = 'fw-bolder'
     tr4.innerHTML = `
         <td>probability customer has to wait in queue=</td>
-        <td>${totalNumOfCustWait_in_queue / totalCustomer + ' or ' +
+        <td>${(totalNumOfCustWait_in_queue / totalCustomer ).toFixed(2)+ ' or ' +
         Math.round((totalNumOfCustWait_in_queue / totalCustomer) * 100) + ' %'}</td> 
     `;
     tableBody2.appendChild(tr4);
@@ -236,7 +236,7 @@ const getSize = () => {
     tr5.className = 'fw-bolder'
     tr5.innerHTML = `
         <td>probability of idle time =</td>
-        <td>${totalIdle / totalTSE + ' or ' +
+        <td>${(totalIdle / totalTSE).toFixed(2) + ' or ' +
         Math.round((totalIdle / totalTSE) * 100) + ' %'}</td> 
     `;
     tableBody2.appendChild(tr5);
@@ -247,7 +247,7 @@ const getSize = () => {
     tr6.className = 'fw-bolder'
     tr6.innerHTML = `
         <td>Average service time =</td>
-        <td>${totalST / totalCustomer}</td> 
+        <td>${(totalST / totalCustomer).toFixed(2)}</td> 
     `;
     tableBody2.appendChild(tr6);
 
@@ -267,7 +267,7 @@ console.log(totalAt,(totalCustomer-1));
     tr8.className = 'fw-bolder'
     tr8.innerHTML = `
         <td>Average time customer spent in system =</td>
-        <td>${totalTSS / totalCustomer + ' mins'}</td> 
+        <td>${(totalTSS / totalCustomer ).toFixed(2)+ ' mins'}</td> 
     `;
     tableBody2.appendChild(tr8);
 
@@ -276,7 +276,7 @@ console.log(totalAt,(totalCustomer-1));
         tr9.className = 'fw-bolder'
         tr9.innerHTML = `
             <td>Average time for those who wait =</td>
-            <td>${totalWT / totalNumOfCustWait_in_queue + ' mins'}</td> 
+            <td>${(totalWT / totalNumOfCustWait_in_queue).toFixed(2) + ' mins'}</td> 
         `;
         tableBody2.appendChild(tr9);
     
