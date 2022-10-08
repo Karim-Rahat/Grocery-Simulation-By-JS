@@ -70,6 +70,11 @@ const getSize = () => {
         {
             // Random IAT
             if (i > 1) {
+                //manual
+                // const ranArr=[913,727,15,948,309]
+                // customers[i].randomIAT = ranArr[i-2]
+
+                //auto
                 customers[i].randomIAT = parseInt(Math.random() * 1000 + 1);
             }
         } {
@@ -100,8 +105,13 @@ const getSize = () => {
                 customers[i].arrival_time = customers[i - 1].arrival_time + customers[i].iat;
             }
         } {
-            // Random Service Time
-            customers[i].random_service_time = parseInt(Math.random() * 100 + 1);
+            // Manual
+            // const ranArr=[84,10,74,53,17,79]
+            // customers[i].random_service_time =ranArr[i-1]
+
+            //auto
+             // Random Service Time
+             customers[i].random_service_time = parseInt(Math.random() * 100 + 1);
         } {
 
             if (customers[i].random_service_time <= 10) {
@@ -226,8 +236,8 @@ const getSize = () => {
     tr5.className = 'fw-bolder'
     tr5.innerHTML = `
         <td>probability of idle time =</td>
-        <td>${totalIdle / totalCustomer + ' or ' +
-        Math.round((totalNumOfCustWait_in_queue / totalTSE) * 100) + ' %'}</td> 
+        <td>${totalIdle / totalTSE + ' or ' +
+        Math.round((totalIdle / totalTSE) * 100) + ' %'}</td> 
     `;
     tableBody2.appendChild(tr5);
 
@@ -237,7 +247,7 @@ const getSize = () => {
     tr6.className = 'fw-bolder'
     tr6.innerHTML = `
         <td>Average service time =</td>
-        <td>${totalTSE / totalCustomer}</td> 
+        <td>${totalST / totalCustomer}</td> 
     `;
     tableBody2.appendChild(tr6);
 
@@ -247,12 +257,12 @@ const getSize = () => {
     tr7.className = 'fw-bolder'
     tr7.innerHTML = `
         <td>Average time between arrival =</td>
-        <td>${totalAt / totalCustomer - 1 + ' mins'}</td> 
+        <td>${totalAt / (totalCustomer - 1) + ' mins'}</td> 
     `;
     tableBody2.appendChild(tr7);
+console.log(totalAt,(totalCustomer-1));
 
-
-    // averge time between arrival
+    // averge time custome spent in system
     const tr8 = document.createElement('tr');
     tr8.className = 'fw-bolder'
     tr8.innerHTML = `
@@ -261,6 +271,15 @@ const getSize = () => {
     `;
     tableBody2.appendChild(tr8);
 
+        // Average time for those who wait
+        const tr9 = document.createElement('tr');
+        tr9.className = 'fw-bolder'
+        tr9.innerHTML = `
+            <td>Average time for those who wait =</td>
+            <td>${totalWT / totalNumOfCustWait_in_queue + ' mins'}</td> 
+        `;
+        tableBody2.appendChild(tr9);
+    
 
 
     const keys = Object.keys(heading());

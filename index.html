@@ -44,6 +44,108 @@
         <tbody id="table-body2"></tbody>
       </table>
     </div>
+    <div class="d-grid gap-2">
+      <button class="btn btn-dark" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+      CLick to see formula
+      </button>
+
+    </div>
+  
+  </p>
+  <div class="collapse" id="collapseExample">
+    <div class="card card-body">
+      <table class="table table-hover table-bordered table-dark">
+        <thead>
+          <th colspan="3" class="text-center">FORMULA</th>
+        </thead>
+       <tbody>
+        <tr>
+          <td>Arrival Time</td>
+          <td>Previous Arrival time + Current IAT</td>
+          <td>AT[i-1] + IAT[i]</td>
+        </tr>
+        <tr>
+          <td>Time Service begins</td>
+          <td>Present Arrival time + Previous Time service end</td>
+          <td>AT[i] + TSE[i-1]</td>
+        </tr>
+        <tr>
+          <td>Time Service Ends</td>
+          <td>Current Time service begin +Current Arrival time</td>
+          <td>TSB + AT</td>
+        </tr>
+        <tr>
+          <td>Waiting time</td>
+          <td>If TSB > AT,Then Waitng Time = ( Time Service Begin-Arrival Time )<br>
+            else,Waiting time=0
+          </td>
+          <td>If(TSB>AT){
+            WT=TSB-AT 
+            <br> }<br>
+          ELSE{WT=0}</td>
+        </tr>
+        <tr>
+          <td>Time Spent in System</td>
+          <td>Current Time service end - Current Arrival time</td>
+          <td>TSE - AT</td>
+        </tr>
+        <tr>
+          <td>IDLE TIME SERVER</td>
+          <td>If TSB[i] > TSE[i-1] ,Then IDLE TIME = (Current Time Service Begin- Previous Time Service Ends)<br>
+            else,IDLE TIME=0
+          </td>
+          <td>If( TSB[i]>TSE[i-1]){ 
+            <br>ITS=( TSB[i]-TSE[i-1] )
+            <br> }<br>
+          ELSE{ITS=0}</td>
+        </tr>
+        <tr>
+          <td colspan="3" class="text-center">EXTRA</td>
+         
+        </tr>
+        <tr>
+        <tr>
+          <td>Average Waiting Time</td>
+          <td colspan="2" class="text-center">sum of total waiting time / total customer number</td>
+          
+        </tr>
+
+        <tr>
+          <td>probability of customer has to wait in queue</td>
+          <td colspan="2" class="text-center">Total number of customer wait in queue / Total Customer</td>
+          
+        </tr>
+        <tr>
+          <td>probability of idle time</td>
+          <td colspan="2" class="text-center">sum of total Idle time / total Run time (sum of TSE) </td>
+          
+        </tr>
+        <tr>
+          <td>Average service time</td>
+          <td colspan="2" class="text-center">Sum of total Service Time / Total Customer </td>
+          
+        </tr>
+        <tr>
+          <td>Average time between arrival</td>
+          <td colspan="2" class="text-center">Sum of IAT/ Number of Arrival </td>
+          
+        </tr>
+        <tr>
+          <td>Average time for those who wait</td>
+          <td colspan="2" class="text-center">Sum of waiting time / Total number of customer wait in queue </td>
+          
+        </tr>
+     
+        <tr>
+          <td>Average time customer spent in system</td>
+          <td colspan="2" class="text-center">Total Time spent in system / Total customers </td>
+          
+        </tr>
+       </tbody>
+      </table>
+    </div>
+  </div>
     <script src="./src/script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
   </body>
 </html>
