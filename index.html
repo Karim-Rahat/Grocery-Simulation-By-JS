@@ -66,8 +66,8 @@
         </tr>
         <tr>
           <td>Time Service begins</td>
-          <td>Present Arrival time + Previous Time service end</td>
-          <td>AT[i] + TSE[i-1]</td>
+          <td>Max between (Present Arrival time,Previous Time service end)</td>
+          <td>Max(AT[i] , TSE[i-1])</td>
         </tr>
         <tr>
           <td>Time Service Ends</td>
