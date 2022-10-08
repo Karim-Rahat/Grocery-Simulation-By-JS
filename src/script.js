@@ -41,7 +41,11 @@ function heading() {
   };
 }
 
+
 const getSize = () => {
+  const  contentDiv=document.getElementById("contentDiv")
+  console.log( contentDiv);
+
   (totalCustomer = 0),
     (totalIAT = 0),
     (totalST = 0),
@@ -284,4 +288,5 @@ const getSize = () => {
 
     tableHead.appendChild(th);
   });
+  contentDiv.style.display ='block'
 };
